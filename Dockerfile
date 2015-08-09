@@ -1,4 +1,4 @@
-FROM java:8u45-jdk
+FROM java:7u79-jdk
 
 RUN apt-get update && apt-get install -y wget git curl zip && rm -rf /var/lib/apt/lists/*
 
@@ -23,6 +23,7 @@ COPY init.groovy /usr/share/jenkins/ref/init.groovy.d/tcp-slave-agent-port.groov
 
 ENV JENKINS_VERSION 1.609.1
 ENV JENKINS_SHA 698284ad950bd663c783e99bc8045ca1c9f92159
+ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
 
 # could use ADD but this one does not check Last-Modified header 
 # see https://github.com/docker/docker/issues/8331
